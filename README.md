@@ -9,7 +9,8 @@ The wrapper is for GWT the same what typings are for TypeScript - like the one p
 It is desined to work with [gwty-leaflet](https://github.com/gwidgets/gwty-leaflet) a GWT wrapper for the [Leaflet](http://leafletjs.com/).
 
 The plugin requires modern GWT >= 2.8 (aka Nextgen GWT) which supports [JsInterop](http://www.gwtproject.org/doc/latest/DevGuideCodingBasicsJsInterop.html).
-<br />No GWT User dependency is needed to make the plugin compatible with the upcoming GWT3.
+<br />
+The gwt-leaflet-d3 is ready to be used with the upcoming J2CL and GWT 3. It has no dependencies to `gwt-user`. 
 
 ## Usage
 
