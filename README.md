@@ -32,4 +32,8 @@ hexbinLayer.addTo(map);
 ```
 
 ## Example output
+![selection_055](https://user-images.githubusercontent.com/16861531/44160203-ff743580-a0b9-11e8-862c-c02d5c67c4f2.png)
 
+...and after zoom in...
+
+![selection_056](https://user-images.githubusercontent.com/16861531/44160202-fdaa7200-a0b9-11e8-8cb7-c22cedef3342.png)
