@@ -1,8 +1,10 @@
 # gwt-leaflet-d3
-A GWT JsInterop wrapper for collection of plugins for using [d3.js](http://d3js.org/) with [Leaflet](http://leafletjs.com/) (at the moment HexbinLayer functionality only).
+A GWT JsInterop wrapper for [Asymmetrik/leaflet-d3](https://github.com/Asymmetrik/leaflet-d3). 
+
+It brings to GWT a collection of plugins for using [d3.js](http://d3js.org/) with [Leaflet](http://leafletjs.com/) (at the moment HexbinLayer functionality only).
 <br />Leaflet D3 Provides a collection of D3.js based visualization plugins for Leaflet (supports D3 v5).
 
-The wrapper is for GWT the same what typings are for TypeScript - like the one provided [here](https://github.com/Asymmetrik/leaflet-d3).  
+The wrapper is for GWT the same what typings are for TypeScript - like the one provided [here](https://github.com/Asymmetrik/leaflet-d3/blob/master/index.d.ts).  
 
 It is desined to work with [gwty-leaflet](https://github.com/gwidgets/gwty-leaflet) a GWT wrapper for the [Leaflet](http://leafletjs.com/).
 
