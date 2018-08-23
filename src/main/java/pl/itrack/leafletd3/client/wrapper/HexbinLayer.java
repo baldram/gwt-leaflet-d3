@@ -5,7 +5,7 @@ import jsinterop.annotations.*;
 
 import static jsinterop.annotations.JsPackage.GLOBAL;
 
-//TODO: to wrap events handling and Pings player
+// TODO: to wrap events handling and Pings layer
 
 /**
  * https://github.com/Asymmetrik/leaflet-d3/blob/master/src/js/hexbin/HexbinLayer.js
