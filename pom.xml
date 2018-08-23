@@ -7,6 +7,7 @@
     <packaging>gwt-lib</packaging>
     <name>GWT Leaflet plugin that allows integration with d3.js library</name>
     <description>A GWT JsInterop wrapper for collection of plugins for using d3.js with Leaflet</description>
+    <url>https://github.com/baldram/gwt-leaflet-d3</url>
 
     <properties>
         <gwtVersion>2.8.2</gwtVersion>
@@ -127,5 +128,5 @@
             <id>release</id>
         </profile>
     </profiles>
-    <url>https://github.com/baldram/gwt-leaflet-d3</url>
+
 </project>

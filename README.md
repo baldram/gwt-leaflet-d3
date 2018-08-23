@@ -14,7 +14,50 @@ The gwt-leaflet-d3 is ready to be used with the upcoming J2CL and GWT 3. It has 
 
 ## Usage
 
-A basic example:
+### Add dependency
+
+Add the JitPack repository to your build file 
+
+```xml
+	<repositories>
+		<repository>
+		    <id>jitpack.io</id>
+		    <url>https://jitpack.io</url>
+		</repository>
+	</repositories>
+```
+
+Add the dependency
+
+```xml
+	<dependency>
+	    <groupId>com.github.baldram</groupId>
+	    <artifactId>gwt-leaflet-d3</artifactId>
+	    <version>0.2.0-SNAPSHOT</version>
+	</dependency>
+```
+
+Also, do not forget to include gwt-leaflet-d3 in your .gwt.xml module definition file:
+
+```xml
+<inherits name='pl.itrack.leafletd3.GwtLeafletD3' />
+```
+
+### Initialize
+
+```java
+public class YourGWTApp implements EntryPoint {
+
+    @Override
+    public void onModuleLoad() {
+        LeafletD3.init(() -> {
+            // do your stuff
+        });
+    }
+}
+```
+
+### That's it! Finally use it. A basic example
 
 ```java
 
