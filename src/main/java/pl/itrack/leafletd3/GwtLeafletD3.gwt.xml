@@ -4,5 +4,6 @@
     <inherits name='elemental2.core.Core'/>
     <inherits name='elemental2.svg.Svg'/>
     <inherits name='org.gwtproject.core.Core'/>
+    <inherits name='com.gwidgets.api.GwtyLeaflet'/>
     <source path="client"/>
 </module>
