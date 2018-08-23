@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module rename-to='GwtLeafletD3'>
+    <inherits name='elemental2.dom.Dom'/>
+    <inherits name='elemental2.core.Core'/>
+    <inherits name='elemental2.svg.Svg'/>
+    <inherits name='org.gwtproject.core.Core'/>
+    <source path="client"/>
+</module>
