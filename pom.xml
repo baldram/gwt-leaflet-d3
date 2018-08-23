@@ -1,0 +1,118 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>pl.itrack</groupId>
+    <artifactId>gwt-leaflet-d3</artifactId>
+    <version>0.2.0</version>
+    <packaging>gwt-lib</packaging>
+    <name>GWT Leaflet plugin that allows integration with d3.js library</name>
+    <description>A GWT JsInterop wrapper for collection of plugins for using d3.js with Leaflet</description>
+
+    <properties>
+        <gwtVersion>2.8.2</gwtVersion>
+        <elementalVersion>1.0.0-RC1</elementalVersion>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+    </properties>
+
+    <licenses>
+        <license>
+            <name>The Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+
+    <scm>
+        <connection>scm:git:git@github.com:baldram/gwt-leaflet-d3.git</connection>
+        <developerConnection>scm:git:git@github.com:baldram/gwt-leaflet-d3.git</developerConnection>
+        <url>git@github.com:baldram/gwt-leaflet-d3.git</url>
+    </scm>
+
+    <dependencies>
+        <!--<dependency>-->
+        <!--<groupId>com.google.gwt</groupId>-->
+        <!--<artifactId>gwt-user</artifactId>-->
+        <!--<version>${gwtVersion}</version>-->
+        <!--<scope>provided</scope>-->
+        <!--</dependency>-->
+        <dependency>
+            <groupId>com.google.gwt</groupId>
+            <artifactId>gwt-dev</artifactId>
+            <version>${gwtVersion}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.google.elemental2</groupId>
+            <artifactId>elemental2-core</artifactId>
+            <version>${elementalVersion}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.elemental2</groupId>
+            <artifactId>elemental2-dom</artifactId>
+            <version>${elementalVersion}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.elemental2</groupId>
+            <artifactId>elemental2-svg</artifactId>
+            <version>${elementalVersion}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.gwtproject.core</groupId>
+            <artifactId>gwt-core</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <groupId>net.ltgt.gwt.maven</groupId>
+                <artifactId>gwt-maven-plugin</artifactId>
+                <version>1.0-rc-9</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <moduleName>pl.itrack.leafletd3.GwtLeafletD3</moduleName>
+                </configuration>
+            </plugin>
+            <!--<plugin>-->
+            <!--<groupId>org.apache.maven.plugins</groupId>-->
+            <!--<artifactId>maven-jar-plugin</artifactId>-->
+            <!--<version>3.0.1</version>-->
+            <!--</plugin>-->
+        </plugins>
+    </build>
+
+    <repositories>
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </repository>
+        <repository>
+            <id>gwtproject-snapshots</id>
+            <url>https://repo.vertispan.com/gwt-snapshot/</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <profiles>
+        <profile>
+            <id>release</id>
+        </profile>
+    </profiles>
+    <url>https://github.com/baldram/gwt-leaflet-d3</url>
+</project>
