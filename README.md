@@ -31,9 +31,9 @@ Add the dependency
 
 ```xml
 	<dependency>
-	    <groupId>com.github.baldram</groupId>
+	    <groupId>pl.itrack</groupId>
 	    <artifactId>gwt-leaflet-d3</artifactId>
-	    <version>0.2.0-SNAPSHOT</version>
+	    <version>0.2.0</version>
 	</dependency>
 ```
 
@@ -44,6 +44,9 @@ Also, do not forget to include gwt-leaflet-d3 in your .gwt.xml module definition
 ```
 
 ### Initialize
+
+Assume your project already includes `leaflet.js` and `leaflet.css` or the base of Leaflet is already initialized with `LeafletResources.whenReady()` as described [here](https://github.com/gwidgets/gwty-leaflet#leaflet-javascript-files).
+Then to use D3 plugin it's enough to initialize it as below.
 
 ```java
 public class YourGWTApp implements EntryPoint {
@@ -56,6 +59,7 @@ public class YourGWTApp implements EntryPoint {
     }
 }
 ```
+Alternatively it's also enough to include JavaScript files: `d3.v{version}.js`, `d3-hexbin.v{version}.js`, `leaflet-d3.js`.
 
 ### That's it! Finally use it. A basic example
 
