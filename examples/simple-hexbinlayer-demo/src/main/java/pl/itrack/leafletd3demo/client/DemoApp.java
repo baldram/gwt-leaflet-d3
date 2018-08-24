@@ -18,7 +18,7 @@ import java.util.logging.Logger;
 public class DemoApp implements EntryPoint {
 
     private static final String MAP_HTML_ID = "map";
-    private static final String MAP_URL = "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
+    private static final String MAP_URL = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
     private static final String ATTRIBUTION = "&copy; <a href=\"http://openstreetmap.org/copyright\">OpenStreetMap</a> contributors";
 
     private static Logger log = Logger.getLogger(DemoApp.class.getName());
