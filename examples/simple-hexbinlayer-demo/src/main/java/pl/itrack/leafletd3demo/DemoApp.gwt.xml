@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module rename-to="DemoApp">
+  <inherits name="com.google.gwt.core.Core"/>
+  <inherits name='pl.itrack.leafletd3.GwtLeafletD3' />
+
+
+  <entry-point class='pl.itrack.leafletd3demo.client.DemoApp'/>
+</module>

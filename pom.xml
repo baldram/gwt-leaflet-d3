@@ -19,8 +19,8 @@
 
     <licenses>
         <license>
-            <name>The Apache License, Version 2.0</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <name>MIT License</name>
+            <url>https://github.com/baldram/gwt-leaflet-d3/blob/master/LICENSE</url>
         </license>
     </licenses>
 

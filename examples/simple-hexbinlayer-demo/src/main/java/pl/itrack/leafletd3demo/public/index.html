@@ -1,0 +1,181 @@
+<!doctype html>
+<html>
+<head>
+    <title>GWT Leaflet D3 demo - simple Hexbin layer</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+
+    <!-- This script is required, it's a bootstrap stuff.   -->
+    <script type="text/javascript"
+            language="javascript"
+            src="DemoApp.nocache.js"></script>
+
+    <!-- Leaflet Javascript -->
+    <script src="./leaflet/leaflet.js"></script>
+    <link rel="stylesheet" href="./leaflet/leaflet.css">
+
+    <!-- Simple styles for this demo's map -->
+    <style>
+        #map {
+            height: 280px;
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+        .hexbin-hexagon {
+            stroke: #000;
+            stroke-width: 1px;
+        }
+    </style>
+
+    <!-- Materialize CSS and Javascript -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+
+    <!-- Syntax highlight -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+</head>
+
+<body>
+<nav>
+    <div class="nav-wrapper orange darken-3">
+        <a class="brand-logo" style="padding-left: 1rem;">Leaflet Hexbin layer</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="https://github.com/baldram/gwt-leaflet-d3">
+                <svg version="1.1" aria-hidden="true" viewBox="0 0 16 16" style="vertical-align: middle; margin-right: 0.2rem" width="22" height="22"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>
+                View on Github</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="container">
+    <div class="row" style="margin-bottom: 0px;">
+        <div class="col s12">
+            <p class="flow-text" style="margin-bottom: 0px;">
+                This demo page displays a simple <span style="font-weight: bolder;">Hexbin layer</span> example with using
+                <a href="https://github.com/baldra/gwt-leaflet-d3">gwt-leaflet-d3</a> library
+                which lets you use <span style="font-weight: bolder;">Java</span> to deal with <a href="http://leafletjs.com/">LeafletJs</a>, <a href="http://d3js.org/">d3.js</a> and <a href="https://github.com/Asymmetrik/leaflet-d3">Leaflet D3 extension</a>.
+
+                For more details please take a look at the
+                <a href="https://github.com/baldram/gwt-leaflet-d3" target="_blank">Documentation</a>.
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12">
+            <p class="description" style="margin-top: 0px;">
+                <div id="map"></div>
+                The full source code for above example is available <a href="https://github.com/baldram/gwt-leaflet-d3/tree/master/examples/simple-hexbinlayer-demo/" target="_blank">here</a>.
+            </p>
+        </div>
+        <div class="col s12 center">
+            <div id="simpleCounterComponentContainer"></div>
+        </div>
+        <div class="col s12">
+            <pre><code class="html">&lt;head&gt;
+    &lt;!-- Leaflet Javascript and Styles - a base map library stuff --&gt;
+    &lt;script src=&quot;./leaflet/leaflet.js&quot; type=&quot;text/javascript&quot; language=&quot;javascript&quot;&gt;&lt;/script&gt;
+    &lt;link href=&quot;./leaflet/leaflet.css&quot; rel=&quot;stylesheet&quot;&gt;
+
+    &lt;!-- Simple styles for this demo&#39;s map --&gt;
+    &lt;style&gt;
+        #map {
+            height: 280px;
+            width: 100%;
+            max-width: 660px;
+            margin-top: 7%;
+        }
+
+        .hexbin-hexagon {
+            stroke: #000;
+            stroke-width: 1px;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id=&quot;map&quot;&gt;&lt;/div&gt;
+&lt;/body&gt;</code></pre>
+        </div>
+        <div class="col s12">
+            <pre><code class="java">@Override
+public void onModuleLoad() {
+    // the remaining D3 related JS files are injected to HTML document from here
+    LeafletD3.init(() -> {
+        createAndAttachMap();
+    });
+}
+
+private void createAndAttachMap() {
+        MapOptions mapOptions = new MapOptions.Builder(
+            L.latLng(52.233333, 21.016667), 6.0, 5.0).dragging(true).build();
+
+    final com.gwidgets.api.leaflet.Map map = L.map("map", mapOptions);
+
+    TileLayerOptions tileLayerOptions =
+            new TileLayerOptions.Builder().minZoom(3).maxZoom(8).build();
+
+    L.tileLayer(MAP_URL, tileLayerOptions).addTo(map);
+
+    HexbinLayer&lt;Coordinate&gt; hexbinLayer = new HexbinLayer&lt;&gt;(
+            HexbinLayer.Config.create()
+                    .withDuration(500d).withOpacity(0.5).withRadius(12d).build());
+
+    hexbinLayer
+            .withRadiusRange(new Integer[]{6, 11})
+            .withColorRange(new String[]{"white", "orange", "red"})
+            .withColorValue(value -> value.length)
+            .withRadiusValue(value -> value.length)
+            .withLng(value -> value.longitude)
+            .withLat(value -> value.latitude)
+            .withData(getCoordinates()); // a data have to be set as the last
+
+    hexbinLayer.addTo(map);
+}</code></pre>
+
+            For complete code please see <a
+                href="https://github.com/baldram/gwt-leaflet-d3/tree/master/examples/simple-hexbinlayer-demo/src/main/java/pl/itrack/leafletd3demo/client/DemoApp.java">here</a>.
+            <br/><br/>
+        </div>
+    </div>
+
+
+</div>
+
+<style>
+    p.description {
+        color: #666666;
+    }
+
+    code {
+        position: relative;
+    }
+
+    code.html:after,
+    code.java:after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        color: #CCCCCC;
+        text-align: right;
+        font-size: 1em;
+        padding: 5px 10px 0;
+        line-height: 15px;
+        height: 15px;
+        font-weight: 600;
+    }
+
+    code.html:after {
+        content: 'HTML';
+    }
+
+    code.java:after {
+        content: 'JAVA';
+    }
+</style>
+<script>hljs.initHighlightingOnLoad()</script>
+
+</body>
+</html>

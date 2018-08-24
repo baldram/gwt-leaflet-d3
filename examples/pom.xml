@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <name>gwt-leaflet-d3::demos::aggregator</name>
+    <parent>
+        <groupId>pl.itrack</groupId>
+        <artifactId>gwt-leaflet-d3-demos-parent</artifactId>
+        <version>0.2.0</version>
+    </parent>
+
+    <artifactId>gwt-leaflet-d3-demos</artifactId>
+    <description>
+        A grouping of all the demos included with the gwt-leaflet-d3 library.
+        This aggregator helps Maven find the demos during recursive builds.
+        It is NOT for use as a parent pom for the demos: for the convenience
+        of end users, the demo poms are all parentless.
+    </description>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>simple-hexbinlayer-demo</module>
+    </modules>
+
+</project>
