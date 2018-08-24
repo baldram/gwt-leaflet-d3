@@ -55,7 +55,7 @@ public class DemoApp implements EntryPoint {
                         .withDuration(500d).withOpacity(0.5).withRadius(12d).build());
 
         hexbinLayer
-                .withRadiusRange(new Integer[]{6, 11})
+                // .withRadiusRange(new Integer[]{6, 11})
                 .withColorRange(new String[]{"white", "orange", "red"})
                 .withColorValue(value -> value.length)
                 .withRadiusValue(value -> value.length)
