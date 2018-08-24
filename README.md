@@ -31,7 +31,7 @@ Add the dependency
 
 ```xml
 	<dependency>
-	    <groupId>com.github.baldram</groupId>
+	    <groupId>pl.itrack</groupId>
 	    <artifactId>gwt-leaflet-d3</artifactId>
 	    <version>0.2.0</version>
 	</dependency>
