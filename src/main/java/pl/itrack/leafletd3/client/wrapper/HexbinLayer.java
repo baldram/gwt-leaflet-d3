@@ -50,6 +50,11 @@ public class HexbinLayer<T> {
     @JsMethod(name = "data")
     public native HexbinLayer<T> withData(T[] data);
 
+    @JsOverlay
+    public void setData(T[] data) {
+        withData(data);
+    }
+
     @JsMethod
     public native HexbinLayer<T> addTo(Map map);
 

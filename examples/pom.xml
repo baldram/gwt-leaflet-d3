@@ -8,7 +8,7 @@
     <parent>
         <groupId>pl.itrack</groupId>
         <artifactId>gwt-leaflet-d3-demos-parent</artifactId>
-        <version>0.2.0</version>
+        <version>1.0.0-SNAPSHOT</version>
     </parent>
 
     <artifactId>gwt-leaflet-d3-demos</artifactId>
