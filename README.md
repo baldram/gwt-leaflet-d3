@@ -16,7 +16,7 @@ The gwt-leaflet-d3 is ready to be used with the upcoming J2CL and GWT 3. It has 
 
 ### Add dependency
 
-Add the JitPack repository to your build file 
+Add the JitPack repository to your `pom.xml` build file: 
 
 ```xml
 	<repositories>
@@ -27,7 +27,7 @@ Add the JitPack repository to your build file
 	</repositories>
 ```
 
-Add the dependency
+Add the dependency:
 
 ```xml
 	<dependency>
@@ -37,7 +37,7 @@ Add the dependency
 	</dependency>
 ```
 
-Also, do not forget to include gwt-leaflet-d3 in your .gwt.xml module definition file:
+Inherit `gwt-leaflet-d3` in your `.gwt.xml` module definition file:
 
 ```xml
 <inherits name='pl.itrack.leafletd3.GwtLeafletD3' />
@@ -45,8 +45,10 @@ Also, do not forget to include gwt-leaflet-d3 in your .gwt.xml module definition
 
 ### Initialize
 
-Assume your project already includes `leaflet.js` and `leaflet.css` or the base of Leaflet is already initialized with `LeafletResources.whenReady()` as described [here](https://github.com/gwidgets/gwty-leaflet#leaflet-javascript-files).
-Then to use D3 plugin it's enough to initialize it as below.
+In order to use the `gwt-leaflet-d3`, a Leaflet map needs to be loaded first.
+Assume your project already includes `leaflet.js` and `leaflet.css`.
+
+Then to use `gwt-leaflet-d3` plugin it's enough to initialize it as below.
 
 ```java
 public class YourGWTApp implements EntryPoint {
@@ -59,19 +61,24 @@ public class YourGWTApp implements EntryPoint {
     }
 }
 ```
-Alternatively it's also enough to include JavaScript files: `d3.v{version}.js`, `d3-hexbin.v{version}.js`, `leaflet-d3.js`.
 
-### That's it! Finally use it. A basic example
+**Alternatively** you can also include it directly in HTML file like this: 
+
+```html
+<script src="https://d3js.org/d3.v5.min.js" charset="utf-8"></script>
+<script src="https://d3js.org/d3-hexbin.v0.2.min.js" charset="utf-8"></script>
+<script src="https://rawgit.com/Asymmetrik/leaflet-d3/master/dist/leaflet-d3.js" charset="utf-8">
+```
+
+### That's it! Using with Leaflet. A basic example
+
+Assume you have your Leaflet map already defined with `gwty-leaflet`, e.g.:
+```java
+final Map map = L.map("map", mapOptions);
+```
+Then it's time to use the `gwt-leaflet-d3`. To add a Hexbin layer, it can be defined this way:
 
 ```java
-
-// use gwty-leaflet to define your map
-// ...
-final Map map = L.map("map", mapOptions);
-// ...
-
-// now add Hexbin layer
-// the gwt-leaflet-d3 related part starts here...
 HexbinLayer<Coordinate> hexbinLayer = new HexbinLayer<>(
         HexbinLayer.Config.create().withDuration(500d).withOpacity(0.5).withRadius(12d).build());
         
@@ -81,7 +88,12 @@ hexbinLayer.addTo(map);
                 
 ```
 
+Please see a complete code with an additional features and options [here](https://github.com/baldram/gwt-leaflet-d3/blob/master/examples/simple-hexbinlayer-demo/src/main/java/pl/itrack/leafletd3demo/client/DemoApp.java).
+
 ## Example output
+
+Please see a live demo here: https://bit.ly/2woO7Ki.
+
 ![selection_055](https://user-images.githubusercontent.com/16861531/44160203-ff743580-a0b9-11e8-862c-c02d5c67c4f2.png)
 
 ...and after zoom in...
