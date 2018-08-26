@@ -81,15 +81,19 @@ public class DemoApp implements EntryPoint {
 
     /**
      * Convert stream of values into a type safe one.
-     * However the library supports just a simple array.
-     * This method demonstrates a possibility of using a typed data (you may have more than two values for a data item).
-     * If you prefer simple array, then just initialize HexbinLayer with generics properly, e.g.:
-     * HexbinLayer<double[][]> hexbinLayer = new HexbinLayer<>();
      *
      * @param coordinates simple array with coordinates
      * @return type safe coordinates
      */
     private Coordinate[] toTypedCoordinates(double[][] coordinates) {
+        /*
+         * Please note that the library supports just a simple array.
+         * This method demonstrates a possibility of using a typed data
+         * (as you may have more than two values for a data item,
+         * eg. latitude, longitude, amplitude, eventDate and so on).
+         * If you prefer a simple array, just initialize HexbinLayer via generics properly, e.g.:
+         * HexbinLayer<double[][]> hexbinLayer = new HexbinLayer<>();
+         */
         return Arrays.stream(coordinates)
                 .map(doubles -> new Coordinate(doubles[0], doubles[1]))
                 .toArray(Coordinate[]::new);
@@ -98,7 +102,7 @@ public class DemoApp implements EntryPoint {
     private void generateTestData() {
         // this is a simple demo, in real life project, the DataGenerator would be injected
         double[][] coordinates = DataGenerator.generateCoordinates(CENTER_LATITUDE, CENTER_LONGITUDE);
-        hexbinLayer.withData(toTypedCoordinates(coordinates));
+        hexbinLayer.setData(toTypedCoordinates(coordinates));
     }
 
     @JsType
