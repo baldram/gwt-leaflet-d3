@@ -51,7 +51,7 @@ public class HexbinLayer<T> {
     public native HexbinLayer<T> withData(T[] data);
 
     @JsOverlay
-    public void setData(T[] data) {
+    public final void setData(T[] data) {
         withData(data);
     }
 
