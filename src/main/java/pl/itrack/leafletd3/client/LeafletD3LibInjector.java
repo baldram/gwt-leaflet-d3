@@ -7,6 +7,15 @@ import org.gwtproject.core.client.ScriptInjector;
 
 import java.util.List;
 
+/**
+ * Dynamically attach to the DOM necessary resources with callback when ready
+ *
+ * <p>
+ * MIT License
+ * <p>
+ * Copyright (c) 2018 <a href="https://github.com/baldram">Marcin Szalomski</a>
+ * <p>
+ */
 public class LeafletD3LibInjector {
 
     private static boolean processed = false;
