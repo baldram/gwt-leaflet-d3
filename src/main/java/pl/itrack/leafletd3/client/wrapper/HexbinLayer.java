@@ -8,10 +8,20 @@ import static jsinterop.annotations.JsPackage.GLOBAL;
 // TODO: to wrap events handling and Pings layer
 
 /**
+ * The GWT JsIterop wrapper for @Asymmetrik/leaflet-d3 JavaScript library.
+ * Provides Hexbin functionality as the one here:
  * https://github.com/Asymmetrik/leaflet-d3/blob/master/src/js/hexbin/HexbinLayer.js
- * L is defined by the Leaflet library (see git://github.com/Leaflet/Leaflet.git for documentation).
+ *
+ * <p>
+ * Note: The "L" is defined by the Leaflet library (see git://github.com/Leaflet/Leaflet.git for documentation).
  * and wrapped by https://github.com/gwidgets/gwty-leaflet .
  * The L is being extended to add d3-hexbin related functions.
+ *
+ * <p>
+ * MIT License
+ * <p>
+ * Copyright (c) 2018 <a href="https://github.com/baldram">Marcin Szalomski</a>
+ * <p>
  *
  * @param <T> a data item type (eg. simply <double[] for Latitude and Longitude pair)
  */

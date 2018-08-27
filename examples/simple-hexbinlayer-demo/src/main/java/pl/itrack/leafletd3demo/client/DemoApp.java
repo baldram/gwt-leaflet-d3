@@ -16,7 +16,16 @@ import java.util.logging.Logger;
 import static elemental2.dom.DomGlobal.document;
 
 /**
- * Entry point classes define <code>onModuleLoad()</code>
+ * A demo project using gwt-leaflet-d3 library.
+ * Entry point class defining <code>onModuleLoad()</code>.
+ * <p>
+ * It's a simple example and the whole application logic is in the main controller.
+ * In the real life project parts of code would be extracted to separate components and injected here.
+ * <p>
+ * MIT License
+ * <p>
+ * Copyright (c) 2018 <a href="https://github.com/baldram">Marcin Szalomski</a>
+ * <p>
  */
 public class DemoApp implements EntryPoint {
 

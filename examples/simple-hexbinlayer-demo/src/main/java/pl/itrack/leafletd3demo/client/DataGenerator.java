@@ -18,6 +18,12 @@ import java.util.stream.IntStream;
  * and https://npm.runkit.com/d3-random
  * <p>
  * Alternatively I could simply use the `gwt-d3` library, but just a very small piece was needed.
+ *
+ * <p>
+ * MIT License
+ * <p>
+ * Copyright (c) 2018 <a href="https://github.com/baldram">Marcin Szalomski</a>
+ * <p>
  */
 @JsType
 class DataGenerator {
