@@ -40,7 +40,7 @@ public class HexbinLayer<T> {
     public native void initialize(Config config);
 
     @JsMethod(name = "radiusRange")
-    public native HexbinLayer<T> withRadiusRange(Integer[] radiusRange);
+    public native HexbinLayer<T> withRadiusRange(double[] radiusRange);
 
     @JsMethod(name = "colorRange")
     public native HexbinLayer<T> withColorRange(String[] colorRange);
@@ -113,6 +113,12 @@ public class HexbinLayer<T> {
         @JsProperty
         double duration;
 
+        @JsProperty
+        double[] colorDomain;
+
+        @JsProperty
+        double[] radiusDomain;
+
         Config() {
         }
 
@@ -130,7 +136,7 @@ public class HexbinLayer<T> {
              * @param radius default 12
              * @return the builder
              */
-            public Config.Builder withRadius(Double radius) {
+            public Config.Builder withRadius(double radius) {
                 this.radius = radius;
                 return this;
             }
@@ -139,7 +145,7 @@ public class HexbinLayer<T> {
              * @param opacity a stroke opacity; default 0.6
              * @return the builder
              */
-            public Config.Builder withOpacity(Double opacity) {
+            public Config.Builder withOpacity(double opacity) {
                 this.opacity = opacity;
                 return this;
             }
@@ -148,10 +154,29 @@ public class HexbinLayer<T> {
              * @param duration default 200
              * @return the builder
              */
-            public Config.Builder withDuration(Double duration) {
+            public Config.Builder withDuration(double duration) {
                 this.duration = duration;
                 return this;
             }
+
+            /**
+             * @param colorDomain default null
+             * @return the builder
+             */
+            public Config.Builder withColorDomain(double[] colorDomain) {
+                this.colorDomain = colorDomain;
+                return this;
+            }
+
+            /**
+             * @param radiusDomain default null
+             * @return the builder
+             */
+            public Config.Builder withRadiusDomain(double[] radiusDomain) {
+                this.radiusDomain = radiusDomain;
+                return this;
+            }
+
 
             public Config build() {
                 return this;
