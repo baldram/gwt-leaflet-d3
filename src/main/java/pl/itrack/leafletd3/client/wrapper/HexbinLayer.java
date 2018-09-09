@@ -68,9 +68,35 @@ public class HexbinLayer<T> {
     @JsMethod
     public native HexbinLayer<T> addTo(Map map);
 
+    @JsMethod(name = "dispatch")
+    public native EventDispatcher<T> getEventDispatcher();
+
+    @JsOverlay
+    public final HexbinLayer<T> onClick(EventCallbackFn<T> callbackFn) {
+        getEventDispatcher().on("click", callbackFn);
+        return this;
+    }
+
+    @JsOverlay
+    public final HexbinLayer<T> onMouseOver(EventCallbackFn<T> callbackFn) {
+        getEventDispatcher().on("mouseover", callbackFn);
+        return this;
+    }
+
+    @JsOverlay
+    public final HexbinLayer<T> onMouseOut(EventCallbackFn<T> callbackFn) {
+        getEventDispatcher().on("mouseout", callbackFn);
+        return this;
+    }
+
     @JsFunction
     public interface CallbackFn<T> {
         double calculate(T value);
+    }
+
+    @JsFunction
+    public interface EventCallbackFn<T> {
+        void execute(CallbackContainer<T>[] callers, double index);
     }
 
     /**
@@ -177,10 +203,17 @@ public class HexbinLayer<T> {
                 return this;
             }
 
-
             public Config build() {
                 return this;
             }
         }
+    }
+
+    @JsType(isNative = true, namespace = GLOBAL, name = "Object")
+    public static class EventDispatcher<T> {
+
+        @JsMethod
+        public native EventDispatcher<T> on(String type, EventCallbackFn<T> callbackFn);
+
     }
 }
