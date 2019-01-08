@@ -33,7 +33,7 @@ Add the dependency:
 	<dependency>
 	    <groupId>pl.itrack</groupId>
 	    <artifactId>gwt-leaflet-d3</artifactId>
-	    <version>0.3.0</version>
+	    <version>0.3.1</version>
 	</dependency>
 ```
 
