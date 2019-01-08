@@ -24,7 +24,7 @@ public class LeafletD3 {
                 Stream.of(
                         "https://d3js.org/d3.v4.min.js",
                         "https://d3js.org/d3-hexbin.v0.2.min.js",
-                        "https://rawgit.com/Asymmetrik/leaflet-d3/master/dist/leaflet-d3.js")
+                        "https://raw.githubusercontent.com/baldram/gwt-leaflet-d3/master/docs/dependencies/dist/leaflet-d3.min.js")
                         .collect(Collectors.toList()),
                 callbackFn);
     }
