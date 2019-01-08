@@ -1,8 +1,0 @@
-{
-  "name": "gwt-leaflet-d3",
-  "version": "0.3.1",
-  "license": "MIT",
-  "dependencies": {
-    "@asymmetrik/leaflet-d3": "4.3.2"
-  }
-}
