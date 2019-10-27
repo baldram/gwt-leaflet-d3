@@ -1,3 +1,10 @@
+
+| The project was archived: the idea is to use [Open Layers 3+](https://github.com/TDesjardins/gwt-ol) and [ol-ext HexBin](https://github.com/Viglino/ol-ext) to get the effect like [this](https://viglino.github.io/ol-ext/examples/layer/map.layer.hexbin.html). The new variant of *HexBin for JsInterop* is on the way... |
+|-------------------|
+
+
+
+
 # gwt-leaflet-d3
 A GWT JsInterop wrapper for [Asymmetrik/leaflet-d3](https://github.com/Asymmetrik/leaflet-d3). 
 
